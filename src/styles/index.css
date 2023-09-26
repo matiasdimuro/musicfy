@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --color-primary: 240, 125, 31;
+  --color-secondary: 130, 46, 154;
+  --coral: #EEDFDF;
+  --gradientCoral: linear-gradient(
+    45deg, 
+    var(--color-primary),
+    var(--color-secondary)
+  );
+} */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.Font-Title {
+  font-family: 'Fugaz One', cursive;
+}
+
+.Font-Subtitle {
+  font-family: 'Itim', cursive;
+}
+
+.Font-Text {
+  font-family: 'Baloo 2', cursive;
+}
