@@ -22,6 +22,7 @@
   text-decoration: none;
 }
 
+
 .Font-Title {
   font-family: 'Fugaz One', cursive;
 }
@@ -32,4 +33,20 @@
 
 .Font-Text {
   font-family: 'Baloo 2', cursive;
+}
+
+.Video-Rounded {
+  overflow: hidden !important;
+  border-radius: 50px !important;
+  -moz-border-radius: 50px !important;
+  -webkit-border-radius: 50px !important;
+}
+
+.GradientPrimaryToSecondary {
+  background: rgb(255, 255, 255);
+	background: linear-gradient(
+    45deg, 
+    #EF6C00 0%, 
+    #822E9A 120%
+	);
 }

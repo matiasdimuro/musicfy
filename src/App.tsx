@@ -1,7 +1,7 @@
 import Master from './layout/Master'
 import './styles/App.css'
 
-function App() {
+function App(): JSX.Element {
 
   return (
     <div className='min-w-full h-screen bg-gradientPrimary'>

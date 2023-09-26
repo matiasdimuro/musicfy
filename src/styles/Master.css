@@ -1,12 +1,12 @@
 .MasterContainer {
 	background: rgb(238,223,223);
-    background: linear-gradient(
-        45deg, 
-        rgba(238,223,223,1) 0%, 
-        rgba(250,183,157,1) 75%
-    );
+	background: linear-gradient(
+			45deg, 
+			rgba(238,223,223,1) 0%, 
+			rgba(250,183,157,1) 75%
+	);
 	background-size: 400% 400%;
-	animation: ChangeGradient 5s ease infinite;
+	animation: ChangeGradient 3s ease infinite;
 	height: 100vh;
 }
 
