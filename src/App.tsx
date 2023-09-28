@@ -1,5 +1,5 @@
 import Master from './layout/Master'
-import ContactButton from './components/ContactButton'
+// import ContactButton from './components/ContactButton'
 import WavesBackground from './components/WavesBackground'
 
 
