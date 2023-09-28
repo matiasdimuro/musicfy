@@ -3,11 +3,12 @@ interface BigCirclesProps {
   className: string
 }
 
+// function BigCirclesProps({gradientToCornerRight, className}): JSX.Element {
 function BigCirclesProps({gradientToCornerRight, className}: BigCirclesProps): JSX.Element {
 
   return (
     <div className={
-      `GradientPrimaryToSecondary w-[18rem] h-[18rem] rounded-full
+      `GradientPrimaryToSecondary rounded-full
       ${gradientToCornerRight ? 'rotate-180' : ''}
       ${className}`
     }>

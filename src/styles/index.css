@@ -2,16 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --color-primary: 240, 125, 31;
-  --color-secondary: 130, 46, 154;
+@layer components {
+
+	.HeadingMasterPage {
+		@apply Font-Title w-full text-center text-5xl lg:text-6xl xl:text-7xl text-dark uppercase tracking-widest select-none
+	}
+
+}
+
+:root {
+  --color-primary: #EF6C00;
+  --color-primary-light: #F07D1F;
+  --color-primary-dark: #E65100;
+  --color-secondary: #822E9A;
   --coral: #EEDFDF;
+  --dark: #232323;
+  --dark-light: #454545;
   --gradientCoral: linear-gradient(
     45deg, 
     var(--color-primary),
     var(--color-secondary)
   );
-} */
+}
+
+
 
 
 * {
@@ -21,6 +35,7 @@
   text-transform: none;
   text-decoration: none;
 }
+
 
 
 .Font-Title {
@@ -35,6 +50,8 @@
   font-family: 'Baloo 2', cursive;
 }
 
+
+
 .Video-Rounded {
   overflow: hidden !important;
   border-radius: 50px !important;
@@ -46,7 +63,7 @@
   background: rgb(255, 255, 255);
 	background: linear-gradient(
     45deg, 
-    #EF6C00 0%, 
-    #822E9A 120%
+    var(--color-primary) 0%, 
+    var(--color-secondary) 120%
 	);
 }

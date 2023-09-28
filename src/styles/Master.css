@@ -1,8 +1,8 @@
 .MasterContainer {
-	background: rgb(238,223,223);
+	background: var(--coral);
 	background: linear-gradient(
 			45deg, 
-			rgba(238,223,223,1) 0%, 
+			var(--coral) 0%, 
 			rgba(250,183,157,1) 75%
 	);
 	background-size: 400% 400%;

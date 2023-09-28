@@ -1,23 +1,29 @@
+import { useState } from "react";
+
 interface ContactButtonProps {
   className: string;
 }
 
 function ContactButton ({className}: ContactButtonProps): JSX.Element {
 
+  const [isHover, setHover] = useState(false);
+  
   return (
-    <div className={
-      `w-fit h-fit shrink-0 ${className}`
+    <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={
+      `w-fit h-fit shrink-0 cursor-pointer ${className}`
     }>
 
       <div className="relative">
 
         {/* CIRCULO */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81" fill="linear-gradient(45deg, #EF6C00 1.06%, #822E9A 127.76%)">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81" 
+          fill={`linear-gradient(45deg, #000 1.06%, #000 127.76%)`}>
           <ellipse cx="40.4392" cy="40.25" rx="40.4392" ry="40.25" fill="url(#paint0_linear_62_657)"/>
           <defs>
             <linearGradient id="paint0_linear_62_657" x1="-2.73805e-06" y1="83.5667" x2="105.033" y2="-20.6263" gradientUnits="userSpaceOnUse">
-              <stop offset="0.0227526" stop-color="#EF6C00"/>
-              <stop offset="1" stop-color="#822E9A"/>
+              <stop offset="0.0227526" stop-color={!isHover ? 'var(--color-primary)' : 'var(--color-primary-dark)' }/> {/*var(--color-primary-dark)*/}
+              <stop offset="1" stop-color="var(--color-secondary)"/>
             </linearGradient>
           </defs>
         </svg>

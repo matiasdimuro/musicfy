@@ -5,37 +5,43 @@ import SmallCircles from '../components/SmallCircles'
 import BigCirclesProps from '../components/BigCircles'
 import ContactButton from '../components/ContactButton'
 
+import { useState } from 'react';
+
 function Master(): JSX.Element {
 
+  const [isGooglePlayHover, setGooglePlayHover] = useState(false);
+  const [isAppleStoreHover, setAppleStoreHover] = useState(false);
+
   return (
-    <div className="MasterContainer h-full p-5 flex flex-col">
+    <div className="MasterContainer p-5 flex flex-col">
 
       {/* LOGO */}
-      <header className='w-full flex justify-center'>
+      <header className='w-full flex justify-center relative md:top-14'>
         <h1 className='Font-Subtitle text-6xl mr-5 text-dark select-none'>Musicfy</h1>
         <img src='../../public/logo.png' alt='Musicfy logo' className='w-[3.75rem] select-none' />
       </header>
 
-      <main className='w-full grow grid sm:grid-cols-2 grid-rows-1 relative'>
+      <main className='w-full h-fit sm:h-full grid justify-items-center gap-10 grid-cols-1 grid-rows-2 md:gap-0 md:grid-cols-2 md:grid-rows-1 relative'>
 
         {/* ENCABEZADO Y LINKS DE DESCARGA */}
-        <article className='flex flex-col justify-center'>
+        <article className='h-fit md:h-auto md:flex md:flex-col md:justify-center mt-12 sm:mt-16 md:mt-0 order-2 md:order-1'>
 
-          <section className='mb-20 flex flex-col justify-center items-center'>
-            <h1 className='Font-Title w-full mb-8 text-center text-7xl text-dark uppercase tracking-widest select-none'>
+          <section className='mb-5 sm:mb-10 lg:mb-20 flex flex-col justify-center items-center'>
+            <h1 className='HeadingMasterPage mb-4 md:mb-8'>
               The music you
             </h1>
-            <h1 className='Font-Title w-full mb-8 text-center text-7xl text-dark uppercase tracking-widest select-none'>
+            <h1 className='HeadingMasterPage mb-4 md:mb-8'>
               like when you
             </h1>
-            <h1 className='Font-Title w-full text-center text-7xl text-dark uppercase tracking-widest select-none'>
+            <h1 className='HeadingMasterPage'>
               want
             </h1>
           </section>
 
-          <section className='flex justify-center'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="53" viewBox="0 0 178 53" fill="none">
-              <path d="M171.407 53H6.59259C2.90074 53 0 50.085 0 46.375V6.625C0 2.915 2.90074 0 6.59259 0H171.407C175.099 0 178 2.915 178 6.625V46.375C178 50.085 175.099 53 171.407 53Z" fill="#232323"/>
+          <section className='flex sm:justify-center sm:flex-row flex-col items-center gap-y-4'>
+            <svg className='cursor-pointer' onMouseOver={() => { setGooglePlayHover(true) }} onMouseOut={() => { setGooglePlayHover(false) }}
+              xmlns="http://www.w3.org/2000/svg" width="200" height="53" viewBox="0 0 178 53" fill="none">
+              <path d="M171.407 53H6.59259C2.90074 53 0 50.085 0 46.375V6.625C0 2.915 2.90074 0 6.59259 0H171.407C175.099 0 178 2.915 178 6.625V46.375C178 50.085 175.099 53 171.407 53Z" fill={!isGooglePlayHover ? '#232323' : '#000000'}/>
               <path d="M171.407 1.06C174.44 1.06 176.945 3.5775 176.945 6.625V46.375C176.945 49.4225 174.44 51.94 171.407 51.94H6.59259C3.56 51.94 1.05481 49.4225 1.05481 46.375V6.625C1.05481 3.5775 3.56 1.06 6.59259 1.06H171.407ZM171.407 0H6.59259C2.90074 0 0 3.0475 0 6.625V46.375C0 50.085 2.90074 53 6.59259 53H171.407C175.099 53 178 50.085 178 46.375V6.625C178 3.0475 175.099 0 171.407 0Z" fill="#A6A6A6"/>
               <path d="M62.4978 13.515C62.4978 14.575 62.2341 15.5025 61.5748 16.165C60.7837 16.96 59.8607 17.3575 58.6741 17.3575C57.4874 17.3575 56.5644 16.96 55.7733 16.165C54.9822 15.37 54.5867 14.4425 54.5867 13.25C54.5867 12.0575 54.9822 11.13 55.7733 10.335C56.5644 9.54002 57.4874 9.14252 58.6741 9.14252C59.2015 9.14252 59.7289 9.27502 60.2563 9.54002C60.7837 9.80502 61.1793 10.07 61.443 10.4675L60.7837 11.13C60.2563 10.4675 59.597 10.2025 58.6741 10.2025C57.883 10.2025 57.0919 10.4675 56.5644 11.13C55.9052 11.66 55.6415 12.455 55.6415 13.3825C55.6415 14.31 55.9052 15.105 56.5644 15.635C57.2237 16.165 57.883 16.5625 58.6741 16.5625C59.597 16.5625 60.2563 16.2975 60.9156 15.635C61.3111 15.2375 61.5748 14.7075 61.5748 14.045H58.6741V12.985H62.4978C62.4978 13.1175 62.4978 13.3825 62.4978 13.515Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
               <path d="M68.5631 10.2025H65.0031V12.72H68.2994V13.6475H65.0031V16.165H68.5631V17.225H63.9482V9.27502H68.5631V10.2025Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
@@ -81,9 +87,10 @@ function Master(): JSX.Element {
                 </linearGradient>
               </defs>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="53" viewBox="0 0 178 53" fill="none">
+            <svg className='cursor-pointer' onMouseOver={() => { setAppleStoreHover(true) }} onMouseOut={() => { setAppleStoreHover(false) }}
+              xmlns="http://www.w3.org/2000/svg" width="200" height="53" viewBox="1 0 168 53" fill="none">
               <path d="M162.987 53H5.92001C2.65643 53 0 50.1804 0 46.7288V6.26195C0 2.809 2.65643 0 5.92001 0H162.987C166.25 0 169 2.809 169 6.26195V46.7288C169 50.1804 166.25 53 162.987 53Z" fill="#A6A6A6"/>
-              <path d="M169 47.6872C169 50.6224 166.824 53 164.133 53H4.87293C2.18323 53 0 50.6224 0 47.6872V5.3197C0 2.38589 2.18323 0 4.87293 0H164.132C166.824 0 168.999 2.38589 168.999 5.3197L169 47.6872Z" fill="#232323"/>
+              <path d="M169 47.6872C169 50.6224 166.824 53 164.133 53H4.87293C2.18323 53 0 50.6224 0 47.6872V5.3197C0 2.38589 2.18323 0 4.87293 0H164.132C166.824 0 168.999 2.38589 168.999 5.3197L169 47.6872Z" fill={!isAppleStoreHover ? '#232323' : '#000000'}/>
               <path d="M37.7159 26.2138C37.6796 21.9434 41.0195 19.8658 41.1723 19.769C39.2807 16.8501 36.3489 16.4512 35.3186 16.4194C32.8562 16.1452 30.4677 17.979 29.2133 17.979C27.9339 17.979 26.0023 16.4459 23.9205 16.491C21.2415 16.5347 18.7353 18.1764 17.3608 20.7257C14.5241 25.9237 16.6397 33.5623 19.3575 37.7639C20.717 39.8216 22.3056 42.1191 24.3849 42.0383C26.4192 41.9495 27.1791 40.6656 29.6339 40.6656C32.0663 40.6656 32.7798 42.0383 34.9005 41.9866C37.0837 41.9495 38.4582 39.9196 39.7702 37.8434C41.3413 35.4849 41.9722 33.1621 41.9972 33.0429C41.9459 33.0243 37.7572 31.3323 37.7159 26.2138Z" fill="white"/>
               <path d="M33.7099 13.6555C34.804 12.2072 35.5526 10.237 35.3448 8.23755C33.7612 8.31175 31.7807 9.39692 30.6403 10.8133C29.6313 12.0615 28.73 14.1073 28.9628 16.0312C30.7417 16.1716 32.5682 15.0812 33.7099 13.6555Z" fill="white"/>
               <path d="M67.1556 41.7428H64.3127L62.7554 36.5634H57.3424L55.8589 41.7428H53.0911L58.454 24.1097H61.7664L67.1556 41.7428ZM62.2859 34.3904L60.8776 29.786C60.7286 29.3156 60.4494 28.2079 60.0376 26.4642H59.9875C59.8235 27.2142 59.5594 28.3219 59.1963 29.786L57.813 34.3904H62.2859Z" fill="white"/>
@@ -112,19 +119,23 @@ function Master(): JSX.Element {
         </article>
 
         {/* CELULAR Y FORMAS */}
-        <article className='grid justify-start items-center'>
-          <div className='relative w-[300px] h-[600px] ms-[10rem]'>
-            <SmallCircles peakToLeft={true} className="absolute -left-10 -top-10" />
-            <SmallCircles peakToLeft={false} className="absolute -right-10 -bottom-10" />
-            <BigCirclesProps gradientToCornerRight={true} className="absolute -right-32 -top-16" />
-            <BigCirclesProps gradientToCornerRight={false} className="absolute -left-32 -bottom-16" />
-            <video className='absolute left-0 top-2 min-w-full max-w-full h-[98%] Video-Rounded'
+        <article className='grid justify-start items-center mt-24 md:mt-0 order-1 md:order-2'>
+          <div className='relative w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]'>
+            <SmallCircles peakToLeft={true} className="absolute -left-10 -top-10 " />
+            <SmallCircles peakToLeft={false} className="absolute -right-10 -bottom-10 " />
+            <BigCirclesProps 
+              gradientToCornerRight={true} 
+              className="absolute -right-16 -top-8 lg:-right-32 lg:-top-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+            <BigCirclesProps 
+              gradientToCornerRight={false} 
+              className="absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+            <video className='Video-Rounded absolute left-0 top-2 min-w-full max-w-full h-[98%]'
               src={video} autoPlay loop muted />
             <img className='w-full h-full opacity-95' src={phoneAsset}/>
           </div>
         </article>
 
-        <ContactButton className='absolute right-8 bottom-2'/>
+        <ContactButton className='absolute right-0 xl:right-8 top-[83%] md:bottom-2 '/>
 
       </main>
 
