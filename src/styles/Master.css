@@ -1,4 +1,4 @@
-.MasterContainer {
+/* .MasterContainer {
 	background: var(--coral);
 	background: linear-gradient(
 			45deg, 
@@ -7,10 +7,10 @@
 	);
 	background-size: 400% 400%;
 	animation: ChangeGradient 3s ease infinite;
-	height: 100vh;
-}
+	min-height: 100dvh;
+} */
 
-@keyframes ChangeGradient {
+/* @keyframes ChangeGradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -20,4 +20,15 @@
 	100% {
 		background-position: 0% 50%;
 	}
+} */
+
+.MasterContainer {
+	background: var(--coral);
+	background: linear-gradient(
+		45deg,
+    #f1cbb5 0%,
+    #ffb890 100%
+	);
+	animation: ChangeGradient 3s ease infinite;
+	min-height: 100dvh;
 }

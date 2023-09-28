@@ -19,9 +19,12 @@ export default {
           'dark': '#000000'
         },
         'coral': 'var(--coral)',
-      }
+      },
+      
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 }
 

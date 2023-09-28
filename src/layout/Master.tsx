@@ -1,30 +1,52 @@
 import '../styles/Master.css'
-import video from '../assets/phone-background.mp4'
-import phoneAsset from '../assets/celular.png'
 import SmallCircles from '../components/SmallCircles'
 import BigCirclesProps from '../components/BigCircles'
-import ContactButton from '../components/ContactButton'
-
 import { useState } from 'react';
+import { useSpring, animated } from "react-spring";
+import Cellphone from '../components/Cellphone'
 
 function Master(): JSX.Element {
+
+  const slideInRightToLeft = useSpring({
+    from: { transform: "translateX(50%)" },
+    to: { transform: "translateX(0)"},
+    config: { duration: 500, ease: "easeInOutBack" },
+  });
+
+  const slideInTopToBottom = useSpring({
+    from: { transform: "translateY(-40%)" },
+    to: { transform: "translateY(0)"},
+    config: { duration: 500, ease: "easeInOutBack" },
+  });
+
+  const showIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 650, ease: "easeInOutBack" },
+  });
 
   const [isGooglePlayHover, setGooglePlayHover] = useState(false);
   const [isAppleStoreHover, setAppleStoreHover] = useState(false);
 
   return (
-    <div className="MasterContainer p-5 flex flex-col">
+    <div className="MasterContainer min-h-screen p-5 flex flex-col">
+      
 
-      {/* LOGO */}
-      <header className='w-full flex justify-center relative md:top-14'>
-        <h1 className='Font-Subtitle text-6xl mr-5 text-dark select-none'>Musicfy</h1>
-        <img src='../../public/logo.png' alt='Musicfy logo' className='w-[3.75rem] select-none' />
+      <header>
+        <animated.div style={slideInTopToBottom}>
+          <animated.div style={showIn} className='w-full flex justify-center relative md:top-14'>
+            <h1 className='Font-Subtitle text-6xl mr-5 text-dark select-none'>Musicfy</h1>
+            <img src='../../public/logo.png' alt='Musicfy logo' className='w-[3.75rem] select-none' />
+          </animated.div>
+        </animated.div>
       </header>
 
-      <main className='w-full h-fit sm:h-full grid justify-items-center gap-10 grid-cols-1 grid-rows-2 md:gap-0 md:grid-cols-2 md:grid-rows-1 relative'>
+      <main 
+        className='w-full grow grid justify-items-center gap-10 grid-cols-1 grid-rows-2 md:gap-0 md:grid-cols-2 md:grid-rows-1 relative'>
 
         {/* ENCABEZADO Y LINKS DE DESCARGA */}
-        <article className='h-fit md:h-auto md:flex md:flex-col md:justify-center mt-12 sm:mt-16 md:mt-0 order-2 md:order-1'>
+        <article className='animate-fade-right animate-once animate-ease-in-out h-fit md:h-auto md:flex md:flex-col md:justify-center mt-12 sm:mt-16 md:mt-0 order-2 md:order-1
+        '>
 
           <section className='mb-5 sm:mb-10 lg:mb-20 flex flex-col justify-center items-center'>
             <h1 className='HeadingMasterPage mb-4 md:mb-8'>
@@ -43,13 +65,13 @@ function Master(): JSX.Element {
               xmlns="http://www.w3.org/2000/svg" width="200" height="53" viewBox="0 0 178 53" fill="none">
               <path d="M171.407 53H6.59259C2.90074 53 0 50.085 0 46.375V6.625C0 2.915 2.90074 0 6.59259 0H171.407C175.099 0 178 2.915 178 6.625V46.375C178 50.085 175.099 53 171.407 53Z" fill={!isGooglePlayHover ? '#232323' : '#000000'}/>
               <path d="M171.407 1.06C174.44 1.06 176.945 3.5775 176.945 6.625V46.375C176.945 49.4225 174.44 51.94 171.407 51.94H6.59259C3.56 51.94 1.05481 49.4225 1.05481 46.375V6.625C1.05481 3.5775 3.56 1.06 6.59259 1.06H171.407ZM171.407 0H6.59259C2.90074 0 0 3.0475 0 6.625V46.375C0 50.085 2.90074 53 6.59259 53H171.407C175.099 53 178 50.085 178 46.375V6.625C178 3.0475 175.099 0 171.407 0Z" fill="#A6A6A6"/>
-              <path d="M62.4978 13.515C62.4978 14.575 62.2341 15.5025 61.5748 16.165C60.7837 16.96 59.8607 17.3575 58.6741 17.3575C57.4874 17.3575 56.5644 16.96 55.7733 16.165C54.9822 15.37 54.5867 14.4425 54.5867 13.25C54.5867 12.0575 54.9822 11.13 55.7733 10.335C56.5644 9.54002 57.4874 9.14252 58.6741 9.14252C59.2015 9.14252 59.7289 9.27502 60.2563 9.54002C60.7837 9.80502 61.1793 10.07 61.443 10.4675L60.7837 11.13C60.2563 10.4675 59.597 10.2025 58.6741 10.2025C57.883 10.2025 57.0919 10.4675 56.5644 11.13C55.9052 11.66 55.6415 12.455 55.6415 13.3825C55.6415 14.31 55.9052 15.105 56.5644 15.635C57.2237 16.165 57.883 16.5625 58.6741 16.5625C59.597 16.5625 60.2563 16.2975 60.9156 15.635C61.3111 15.2375 61.5748 14.7075 61.5748 14.045H58.6741V12.985H62.4978C62.4978 13.1175 62.4978 13.3825 62.4978 13.515Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M68.5631 10.2025H65.0031V12.72H68.2994V13.6475H65.0031V16.165H68.5631V17.225H63.9482V9.27502H68.5631V10.2025Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M72.914 17.225H71.8592V10.2025H69.6177V9.27502H75.1555V10.2025H72.914V17.225Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M78.9792 17.225V9.27502H80.0341V17.225H78.9792Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M84.517 17.225H83.4622V10.2025H81.2207V9.27502H86.6266V10.2025H84.3851V17.225H84.517Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M97.0431 16.165C96.252 16.96 95.329 17.3575 94.1423 17.3575C92.9557 17.3575 92.0327 16.96 91.2416 16.165C90.4505 15.37 90.0549 14.4425 90.0549 13.25C90.0549 12.0575 90.4505 11.13 91.2416 10.335C92.0327 9.54002 92.9557 9.14252 94.1423 9.14252C95.329 9.14252 96.252 9.54002 97.0431 10.335C97.8342 11.13 98.2297 12.0575 98.2297 13.25C98.2297 14.4425 97.8342 15.37 97.0431 16.165ZM92.0327 15.5025C92.5601 16.0325 93.3512 16.43 94.1423 16.43C94.9334 16.43 95.7246 16.165 96.252 15.5025C96.7794 14.9725 97.1749 14.1775 97.1749 13.25C97.1749 12.3225 96.9112 11.5275 96.252 10.9975C95.7246 10.4675 94.9334 10.07 94.1423 10.07C93.3512 10.07 92.5601 10.335 92.0327 10.9975C91.5053 11.5275 91.1097 12.3225 91.1097 13.25C91.1097 14.1775 91.3735 14.9725 92.0327 15.5025Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-              <path d="M99.6799 17.225V9.27502H100.867L104.69 15.5025V13.9125V9.27502H105.745V17.225H104.69L100.603 10.7325V12.3225V17.225H99.6799Z" fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
+              <path d="M62.4978 13.515C62.4978 14.575 62.2341 15.5025 61.5748 16.165C60.7837 16.96 59.8607 17.3575 58.6741 17.3575C57.4874 17.3575 56.5644 16.96 55.7733 16.165C54.9822 15.37 54.5867 14.4425 54.5867 13.25C54.5867 12.0575 54.9822 11.13 55.7733 10.335C56.5644 9.54002 57.4874 9.14252 58.6741 9.14252C59.2015 9.14252 59.7289 9.27502 60.2563 9.54002C60.7837 9.80502 61.1793 10.07 61.443 10.4675L60.7837 11.13C60.2563 10.4675 59.597 10.2025 58.6741 10.2025C57.883 10.2025 57.0919 10.4675 56.5644 11.13C55.9052 11.66 55.6415 12.455 55.6415 13.3825C55.6415 14.31 55.9052 15.105 56.5644 15.635C57.2237 16.165 57.883 16.5625 58.6741 16.5625C59.597 16.5625 60.2563 16.2975 60.9156 15.635C61.3111 15.2375 61.5748 14.7075 61.5748 14.045H58.6741V12.985H62.4978C62.4978 13.1175 62.4978 13.3825 62.4978 13.515Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M68.5631 10.2025H65.0031V12.72H68.2994V13.6475H65.0031V16.165H68.5631V17.225H63.9482V9.27502H68.5631V10.2025Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M72.914 17.225H71.8592V10.2025H69.6177V9.27502H75.1555V10.2025H72.914V17.225Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M78.9792 17.225V9.27502H80.0341V17.225H78.9792Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M84.517 17.225H83.4622V10.2025H81.2207V9.27502H86.6266V10.2025H84.3851V17.225H84.517Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M97.0431 16.165C96.252 16.96 95.329 17.3575 94.1423 17.3575C92.9557 17.3575 92.0327 16.96 91.2416 16.165C90.4505 15.37 90.0549 14.4425 90.0549 13.25C90.0549 12.0575 90.4505 11.13 91.2416 10.335C92.0327 9.54002 92.9557 9.14252 94.1423 9.14252C95.329 9.14252 96.252 9.54002 97.0431 10.335C97.8342 11.13 98.2297 12.0575 98.2297 13.25C98.2297 14.4425 97.8342 15.37 97.0431 16.165ZM92.0327 15.5025C92.5601 16.0325 93.3512 16.43 94.1423 16.43C94.9334 16.43 95.7246 16.165 96.252 15.5025C96.7794 14.9725 97.1749 14.1775 97.1749 13.25C97.1749 12.3225 96.9112 11.5275 96.252 10.9975C95.7246 10.4675 94.9334 10.07 94.1423 10.07C93.3512 10.07 92.5601 10.335 92.0327 10.9975C91.5053 11.5275 91.1097 12.3225 91.1097 13.25C91.1097 14.1775 91.3735 14.9725 92.0327 15.5025Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+              <path d="M99.6799 17.225V9.27502H100.867L104.69 15.5025V13.9125V9.27502H105.745V17.225H104.69L100.603 10.7325V12.3225V17.225H99.6799Z" fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
               <path d="M89.7909 28.885C86.6265 28.885 84.1213 31.27 84.1213 34.5825C84.1213 37.7625 86.6265 40.28 89.7909 40.28C92.9554 40.28 95.4606 37.895 95.4606 34.5825C95.4606 31.1375 92.9554 28.885 89.7909 28.885ZM89.7909 37.895C88.0768 37.895 86.6265 36.4375 86.6265 34.45C86.6265 32.4625 88.0768 31.005 89.7909 31.005C91.505 31.005 92.9554 32.33 92.9554 34.45C92.9554 36.4375 91.505 37.895 89.7909 37.895ZM77.5287 28.885C74.3643 28.885 71.8591 31.27 71.8591 34.5825C71.8591 37.7625 74.3643 40.28 77.5287 40.28C80.6931 40.28 83.1983 37.895 83.1983 34.5825C83.1983 31.1375 80.6931 28.885 77.5287 28.885ZM77.5287 37.895C75.8146 37.895 74.3643 36.4375 74.3643 34.45C74.3643 32.4625 75.8146 31.005 77.5287 31.005C79.2428 31.005 80.6931 32.33 80.6931 34.45C80.6931 36.4375 79.2428 37.895 77.5287 37.895ZM62.8931 30.6075V32.9925H68.5628C68.4309 34.3175 67.9035 35.3775 67.2443 36.04C66.4531 36.835 65.1346 37.7625 62.8931 37.7625C59.3331 37.7625 56.6961 34.98 56.6961 31.4025C56.6961 27.825 59.465 25.0425 62.8931 25.0425C64.7391 25.0425 66.1894 25.8375 67.2443 26.765L68.9583 25.0425C67.508 23.7175 65.662 22.6575 63.025 22.6575C58.2783 22.6575 54.1909 26.6325 54.1909 31.4025C54.1909 36.1725 58.2783 40.1475 63.025 40.1475C65.662 40.1475 67.508 39.3525 69.0902 37.63C70.6724 36.04 71.1998 33.7875 71.1998 32.065C71.1998 31.535 71.1998 31.005 71.068 30.6075H62.8931ZM122.754 32.4625C122.226 31.1375 120.908 28.885 118.007 28.885C115.106 28.885 112.733 31.1375 112.733 34.5825C112.733 37.7625 115.106 40.28 118.271 40.28C120.776 40.28 122.358 38.69 122.886 37.7625L121.04 36.4375C120.381 37.365 119.589 38.0275 118.271 38.0275C116.952 38.0275 116.161 37.4975 115.502 36.305L123.018 33.125L122.754 32.4625ZM115.106 34.3175C115.106 32.1975 116.821 31.005 118.007 31.005C118.93 31.005 119.853 31.535 120.117 32.1975L115.106 34.3175ZM108.909 39.75H111.415V23.1875H108.909V39.75ZM104.954 30.0775C104.295 29.415 103.24 28.7525 101.921 28.7525C99.1524 28.7525 96.5154 31.27 96.5154 34.45C96.5154 37.63 99.0206 40.015 101.921 40.015C103.24 40.015 104.295 39.3525 104.822 38.69H104.954V39.485C104.954 41.605 103.767 42.7975 101.921 42.7975C100.471 42.7975 99.4161 41.7375 99.1524 40.81L97.0428 41.7375C97.702 43.195 99.2843 45.05 102.053 45.05C104.954 45.05 107.327 43.3275 107.327 39.22V29.15H104.954V30.0775ZM102.053 37.895C100.339 37.895 98.8887 36.4375 98.8887 34.45C98.8887 32.4625 100.339 31.005 102.053 31.005C103.767 31.005 105.086 32.4625 105.086 34.45C105.086 36.4375 103.767 37.895 102.053 37.895ZM134.225 23.1875H128.292V39.75H130.797V33.5225H134.225C136.994 33.5225 139.631 31.535 139.631 28.355C139.631 25.175 136.994 23.1875 134.225 23.1875ZM134.357 31.1375H130.797V25.44H134.357C136.203 25.44 137.258 27.03 137.258 28.2225C137.126 29.68 136.071 31.1375 134.357 31.1375ZM149.52 28.7525C147.674 28.7525 145.828 29.5475 145.169 31.27L147.41 32.1975C147.938 31.27 148.729 31.005 149.652 31.005C150.97 31.005 152.157 31.8 152.289 33.125V33.2575C151.893 32.9925 150.838 32.595 149.784 32.595C147.41 32.595 145.037 33.92 145.037 36.305C145.037 38.5575 147.015 40.015 149.124 40.015C150.838 40.015 151.629 39.22 152.289 38.425H152.421V39.75H154.794V33.39C154.53 30.475 152.289 28.7525 149.52 28.7525ZM149.256 37.895C148.465 37.895 147.278 37.4975 147.278 36.4375C147.278 35.1125 148.729 34.715 149.915 34.715C150.97 34.715 151.498 34.98 152.157 35.245C151.893 36.835 150.575 37.895 149.256 37.895ZM163.101 29.15L160.332 36.305H160.2L157.299 29.15H154.662L159.013 39.22L156.508 44.785H159.013L165.738 29.15H163.101ZM140.949 39.75H143.455V23.1875H140.949V39.75Z" fill="white"/>
               <path d="M13.7125 9.9375C13.3169 10.335 13.1851 10.9975 13.1851 11.7925V41.075C13.1851 41.87 13.4488 42.5325 13.8443 42.93L13.9762 43.0625L30.3258 26.6325V26.5V26.3675L13.7125 9.9375Z" fill="url(#paint0_linear_6_148)"/>
               <path d="M35.5998 32.1975L30.1938 26.765V26.5V26.3675L35.5998 20.935L35.7316 21.0675L42.1924 24.7775C44.0383 25.8375 44.0383 27.56 42.1924 28.62L35.5998 32.1975Z" fill="url(#paint1_linear_6_148)"/>
@@ -61,29 +83,29 @@ function Master(): JSX.Element {
               <path opacity="0.25" d="M16.4814 10.07L42.1925 24.7775C42.9836 25.3075 43.511 25.8375 43.511 26.5C43.511 25.8375 43.1154 25.175 42.1925 24.645L16.4814 9.9375C14.6354 8.8775 13.1851 9.6725 13.1851 11.7925V11.925C13.1851 9.9375 14.6354 9.01 16.4814 10.07Z" fill="white"/>
               <defs>
                 <linearGradient id="paint0_linear_6_148" x1="28.7431" y1="11.5405" x2="6.50664" y2="33.6681" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00A0FF"/>
-                  <stop offset="0.00657445" stop-color="#00A1FF"/>
-                  <stop offset="0.2601" stop-color="#00BEFF"/>
-                  <stop offset="0.5122" stop-color="#00D2FF"/>
-                  <stop offset="0.7604" stop-color="#00DFFF"/>
-                  <stop offset="1" stop-color="#00E3FF"/>
+                  <stop stopColor="#00A0FF"/>
+                  <stop offset="0.00657445" stopColor="#00A1FF"/>
+                  <stop offset="0.2601" stopColor="#00BEFF"/>
+                  <stop offset="0.5122" stopColor="#00D2FF"/>
+                  <stop offset="0.7604" stopColor="#00DFFF"/>
+                  <stop offset="1" stopColor="#00E3FF"/>
                 </linearGradient>
                 <linearGradient id="paint1_linear_6_148" x1="44.6109" y1="26.502" x2="12.7069" y2="26.502" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FFE000"/>
-                  <stop offset="0.4087" stop-color="#FFBD00"/>
-                  <stop offset="0.7754" stop-color="#FFA500"/>
-                  <stop offset="1" stop-color="#FF9C00"/>
+                  <stop stopColor="#FFE000"/>
+                  <stop offset="0.4087" stopColor="#FFBD00"/>
+                  <stop offset="0.7754" stopColor="#FFA500"/>
+                  <stop offset="1" stopColor="#FF9C00"/>
                 </linearGradient>
                 <linearGradient id="paint2_linear_6_148" x1="32.7345" y1="29.5425" x2="2.58016" y2="59.5493" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FF3A44"/>
-                  <stop offset="1" stop-color="#C31162"/>
+                  <stop stopColor="#FF3A44"/>
+                  <stop offset="1" stopColor="#C31162"/>
                 </linearGradient>
                 <linearGradient id="paint3_linear_6_148" x1="9.6213" y1="0.233611" x2="23.0866" y2="13.6329" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#32A071"/>
-                  <stop offset="0.0685" stop-color="#2DA771"/>
-                  <stop offset="0.4762" stop-color="#15CF74"/>
-                  <stop offset="0.8009" stop-color="#06E775"/>
-                  <stop offset="1" stop-color="#00F076"/>
+                  <stop stopColor="#32A071"/>
+                  <stop offset="0.0685" stopColor="#2DA771"/>
+                  <stop offset="0.4762" stopColor="#15CF74"/>
+                  <stop offset="0.8009" stopColor="#06E775"/>
+                  <stop offset="1" stopColor="#00F076"/>
                 </linearGradient>
               </defs>
             </svg>
@@ -116,29 +138,35 @@ function Master(): JSX.Element {
               <path d="M151.733 14.3802C151.733 14.6293 151.716 14.8387 151.684 15.0096H147.75C147.767 15.6271 147.955 16.0974 148.319 16.4234C148.652 16.7149 149.082 16.8606 149.607 16.8606C150.19 16.8606 150.72 16.7626 151.199 16.5652L151.404 17.5298C150.844 17.7868 150.186 17.9153 149.423 17.9153C148.51 17.9153 147.79 17.6305 147.269 17.0607C146.746 16.491 146.487 15.7264 146.487 14.7671C146.487 13.8251 146.728 13.0407 147.215 12.4153C147.723 11.7475 148.411 11.4136 149.278 11.4136C150.127 11.4136 150.772 11.7475 151.207 12.4153C151.559 12.9453 151.733 13.6011 151.733 14.3802ZM150.481 14.0212C150.491 13.6091 150.405 13.254 150.227 12.9545C149.999 12.569 149.653 12.3755 149.183 12.3755C148.755 12.3755 148.406 12.5637 148.139 12.9413C147.921 13.2421 147.792 13.6011 147.75 14.0212H150.481Z" fill="white"/>
             </svg>
           </section>
+
         </article>
 
-        {/* CELULAR Y FORMAS */}
-        <article className='grid justify-start items-center mt-24 md:mt-0 order-1 md:order-2'>
-          <div className='relative w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]'>
-            <SmallCircles peakToLeft={true} className="absolute -left-10 -top-10 " />
-            <SmallCircles peakToLeft={false} className="absolute -right-10 -bottom-10 " />
-            <BigCirclesProps 
-              gradientToCornerRight={true} 
-              className="absolute -right-16 -top-8 lg:-right-32 lg:-top-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
-            <BigCirclesProps 
-              gradientToCornerRight={false} 
-              className="absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
-            <video className='Video-Rounded absolute left-0 top-2 min-w-full max-w-full h-[98%]'
-              src={video} autoPlay loop muted />
-            <img className='w-full h-full opacity-95' src={phoneAsset}/>
-          </div>
-        </article>
 
-        <ContactButton className='absolute right-0 xl:right-8 top-[83%] md:bottom-2 '/>
+        <animated.div style={slideInRightToLeft} className="mt-24 md:mt-0 order-1 md:order-2 grid justify-start items-center">
+
+          <animated.div style={showIn}>
+
+            {/* CELULAR Y FORMAS */}
+            <article>
+              <div className='relative w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]'>
+                <SmallCircles peakToLeft={true} className="absolute -left-10 -top-10 " />
+                <SmallCircles peakToLeft={false} className="absolute -right-10 -bottom-10 " />
+                <BigCirclesProps 
+                  gradientToCornerRight={true} 
+                  className="absolute -right-16 -top-8 lg:-right-32 lg:-top-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+                <BigCirclesProps 
+                  gradientToCornerRight={false} 
+                  className="absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+                <Cellphone />
+              </div>
+            </article>
+
+          </animated.div>
+
+        </animated.div>
 
       </main>
-
+      
     </div>
   )
 }

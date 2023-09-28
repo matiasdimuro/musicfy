@@ -22,8 +22,8 @@ function ContactButton ({className}: ContactButtonProps): JSX.Element {
           <ellipse cx="40.4392" cy="40.25" rx="40.4392" ry="40.25" fill="url(#paint0_linear_62_657)"/>
           <defs>
             <linearGradient id="paint0_linear_62_657" x1="-2.73805e-06" y1="83.5667" x2="105.033" y2="-20.6263" gradientUnits="userSpaceOnUse">
-              <stop offset="0.0227526" stop-color={!isHover ? 'var(--color-primary)' : 'var(--color-primary-dark)' }/> {/*var(--color-primary-dark)*/}
-              <stop offset="1" stop-color="var(--color-secondary)"/>
+              <stop offset="0.0227526" stopColor={!isHover ? 'var(--color-primary)' : 'var(--color-primary-dark)' }/> {/*var(--color-primary-dark)*/}
+              <stop offset="1" stopColor="var(--color-secondary)"/>
             </linearGradient>
           </defs>
         </svg>
@@ -34,8 +34,8 @@ function ContactButton ({className}: ContactButtonProps): JSX.Element {
           <path d="M34.8628 36.4023L0.220743 24.8789L27.6439 0.507277L34.8628 36.4023Z" fill="url(#paint0_linear_62_658)"/>
           <defs>
             <linearGradient id="paint0_linear_62_658" x1="-39.8709" y1="29.1333" x2="81.7799" y2="-53.9065" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#EF6C00"/>
-              <stop offset="1" stop-color="#822E9A"/>
+              <stop stopColor="#EF6C00"/>
+              <stop offset="1" stopColor="#822E9A"/>
             </linearGradient>
           </defs>
         </svg> */}
