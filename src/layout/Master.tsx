@@ -1,9 +1,13 @@
+import logo from '/src/logo.png'
+
 import '../styles/Master.css'
+
 import SmallCircles from '../components/SmallCircles'
 import BigCirclesProps from '../components/BigCircles'
+import Cellphone from '../components/Cellphone'
+
 import { useState } from 'react';
 import { useSpring, animated } from "react-spring";
-import Cellphone from '../components/Cellphone'
 
 function Master(): JSX.Element {
 
@@ -36,7 +40,7 @@ function Master(): JSX.Element {
         <animated.div style={slideInTopToBottom}>
           <animated.div style={showIn} className='w-full flex justify-center relative md:top-14'>
             <h1 className='Font-Subtitle text-6xl mr-5 text-dark select-none'>Musicfy</h1>
-            <img src='../../public/logo.png' alt='Musicfy logo' className='w-[3.75rem] select-none' />
+            <img src={logo} alt='Musicfy logo' className='w-[3.75rem] select-none' />
           </animated.div>
         </animated.div>
       </header>
