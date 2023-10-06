@@ -86,11 +86,37 @@ body::-webkit-scrollbar-thumb:active {
 .GradientPrimaryToSecondary {
   background: rgb(255, 255, 255);
 	background: linear-gradient(
-    45deg, 
-    var(--color-primary) 0%, 
+    -45deg, 
+    var(--color-primary) -20%, 
     var(--color-secondary) 120%
 	);
+  background-size: 150% 150%;
+  animation: ChangeGradient 4s ease infinite;
 }
+
+
+@keyframes ChangeGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.MasterContainer {
+	background: var(--coral);
+	background: linear-gradient(
+		45deg,
+    #f1cbb5 0%,
+    #f3f0ef 100%
+	);
+	animation: ChangeGradient 3s ease infinite;
+}
+
 
 @media (min-width: 500px) {
 

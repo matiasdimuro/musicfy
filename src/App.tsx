@@ -1,17 +1,22 @@
+import Advantages from './layout/Advantages'
 import Master from './layout/Master'
 // import ContactButton from './components/ContactButton'
-import WavesBackground from './components/WavesBackground'
+// import WavesBackground from './components/WavesBackground'
+import Quote from './layout/Quote'
 
 
 function App(): JSX.Element {
 
   return (
-    <div className='min-w-full'>
-      <WavesBackground />
+    <>
+      {/* <WavesBackground /> */}
       <Master/>
-      <div className='w-full h-[400px] bg-secondary'></div>
+      <Quote />
+      <Advantages />
+      <Quote />
+
       {/* <ContactButton className='absolute right-6 top-[90%] inline-block'/> */}
-    </div>
+    </>
   )
 }
 

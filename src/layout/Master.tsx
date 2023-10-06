@@ -1,7 +1,5 @@
 import logo from '/src/logo.png'
 
-import '../styles/Master.css'
-
 import SmallCircles from '../components/SmallCircles'
 import BigCirclesProps from '../components/BigCircles'
 import Cellphone from '../components/Cellphone'
@@ -33,8 +31,7 @@ function Master(): JSX.Element {
   const [isAppleStoreHover, setAppleStoreHover] = useState(false);
 
   return (
-    <div className="MasterContainer min-h-screen p-5 flex flex-col">
-      
+    <div className="MasterContainer min-w-full min-h-screen p-5 flex flex-col">
 
       <header>
         <animated.div style={slideInTopToBottom}>
@@ -161,7 +158,7 @@ function Master(): JSX.Element {
                 <BigCirclesProps 
                   gradientToCornerRight={false} 
                   className="absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
-                <Cellphone />
+                <Cellphone className='Video-Rounded absolute left-0 top-1 lg:top-4 min-w-full max-w-full h-[96%]' />
               </div>
             </article>
 
