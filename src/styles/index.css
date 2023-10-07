@@ -4,9 +4,97 @@
 
 @layer components {
 
-	.HeadingMasterPage {
-		@apply Font-Title w-full text-center text-5xl lg:text-6xl xl:text-7xl text-dark uppercase tracking-widest select-none
-	}
+  /* .HeadingMasterPage {
+    @apply Font-Title w-full text-center text-5xl lg:text-6xl xl:text-7xl text-dark uppercase tracking-widest select-none
+  } */
+  
+  /* DESKTOP */
+
+  @media screen and (min-height: 700px) {
+    .TitleMasterPage {
+      @apply md:top-14
+    }
+    .HeadingMasterPageContainer {
+      @apply mb-5 sm:mb-10 lg:mb-20
+    }
+    .HeadingMasterPage {
+      @apply Font-Title w-full text-center text-5xl lg:text-6xl xl:text-7xl text-dark uppercase tracking-widest select-none
+    }
+    .CellphoneContainer {
+      @apply w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]
+    }
+    .BigCircles {
+      @apply w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]
+    }
+    .BigCircles-RightTop {
+      @apply absolute -right-16 -top-8 lg:-right-32 lg:-top-16
+    }
+    .BigCircles-LeftBottom {
+      @apply absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16
+    }
+    .BigCircles-Middle {
+      @apply absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/3 w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rotate-90
+    }
+    .SmallCircles-LeftTop {
+      @apply absolute -left-10 -top-10
+    }
+    .SmallCircles-RightBottom {
+      @apply absolute -right-10 -bottom-10
+    }
+    .AdvantagesContainer {
+      @apply w-full h-auto lg:h-[800px] xl:h-screen
+    }
+    .AdvantageIcon {
+      @apply w-[80px] lg:w-[130px]
+    }
+    .AdvantageTitle {
+      @apply text-4xl lg:text-5xl
+    }
+  }
+
+  /* LAPTOP */
+
+  @media screen and (max-height: 700px) {
+    .TitleMasterPage {
+      @apply md:top-3
+    }
+    .HeadingMasterPageContainer {
+      @apply mb-5 sm:mb-10 lg:mb-10
+    }
+    .HeadingMasterPage {
+      @apply Font-Title w-full text-center text-5xl lg:text-5xl xl:text-6xl text-dark uppercase tracking-widest select-none
+    }
+    .CellphoneContainer {
+      @apply w-[200px] h-[400px] lg:w-[217px] lg:h-[425px] xl:w-[225px] xl:h-[450px]
+    }
+    .BigCircles {
+      @apply w-[10rem] h-[10rem] lg:w-[12rem] lg:h-[12rem] xl:w-[14rem] xl:h-[14rem]
+    }
+    .BigCircles-RightTop {
+      @apply absolute -right-16 -top-8 lg:-right-20 lg:-top-8
+    }
+    .BigCircles-LeftBottom {
+      @apply absolute -left-16 -bottom-8 lg:-left-20 lg:-bottom-8
+    }
+    .BigCircles-Middle {
+      @apply absolute top-1/2 left-1/3 sm:left-1/3 md:left-1/4 lg:left-1/3 -translate-y-1/2 -translate-x-2/3 sm:-translate-x-1/3 rotate-90
+    }
+    .SmallCircles-LeftTop {
+      @apply absolute -left-7 -top-7
+    }
+    .SmallCircles-RightBottom {
+      @apply absolute -right-7 -bottom-7
+    }
+    .AdvantagesContainer {
+      @apply w-full h-auto lg:h-auto
+    }
+    .AdvantageIcon {
+      @apply w-[80px] lg:w-[90px]
+    }
+    .AdvantageTitle {
+      @apply text-4xl
+    }
+  }
 
 }
 

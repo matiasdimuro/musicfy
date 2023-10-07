@@ -34,13 +34,15 @@ function Advantages(): JSX.Element {
   ]
 
   return (
-    <article className="MasterContainer w-full h-auto lg:h-[800px] xl:h-screen px-10 py-10 md:py-16 flex flex-col md:flex-row gap-12 md:gap-5">
+    <article className="MasterContainer AdvantagesContainer px-10 py-10 md:py-16 flex flex-col md:flex-row md:items-center gap-12 md:gap-5">
 
-      <section className="w-full md:w-[400px] lg:w-[500px] h-full flex justify-center md:justify-end items-center relative order-2 md:order-1">
+      <section className="
+        w-full md:w-[400px] lg:w-[500px] h-full 
+        flex justify-center md:justify-end items-center relative order-2 md:order-1">
         <BigCircles 
           gradientToCornerRight={false} 
-          className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/3 w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rotate-90 " />
-        <div className="relative w-[250px] h-[500px] lg:w-[300px] lg:h-[600px] xl:w-[400px] xl:h-[800px]">
+          className="BigCircles BigCircles-Middle " />
+        <div className="relative CellphoneContainer">
           <Cellphone className='Video-Rounded absolute left-0 top-1 lg:top-4 min-w-full max-w-full h-[96%]' /> 
           <SmallCircles peakToLeft={true} className="absolute -left-8 -top-8" />
         </div>

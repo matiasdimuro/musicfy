@@ -35,7 +35,7 @@ function Master(): JSX.Element {
 
       <header>
         <animated.div style={slideInTopToBottom}>
-          <animated.div style={showIn} className='w-full flex justify-center relative md:top-14'>
+          <animated.div style={showIn} className='TitleMasterPage w-full flex justify-center relative'>
             <h1 className='Font-Subtitle text-6xl mr-5 text-dark select-none'>Musicfy</h1>
             <img src={logo} alt='Musicfy logo' className='w-[3.75rem] select-none' />
           </animated.div>
@@ -46,10 +46,12 @@ function Master(): JSX.Element {
         className='w-full grow grid justify-items-center gap-10 grid-cols-1 grid-rows-2 md:gap-0 md:grid-cols-2 md:grid-rows-1 relative'>
 
         {/* ENCABEZADO Y LINKS DE DESCARGA */}
-        <article className='animate-fade-right animate-once animate-ease-in-out h-fit md:h-auto md:flex md:flex-col md:justify-center mt-12 sm:mt-16 md:mt-0 order-2 md:order-1
+        <article className='
+          animate-fade-right animate-once animate-ease-in-out 
+          h-fit md:h-auto md:flex md:flex-col md:justify-center mt-12 sm:mt-16 md:mt-0 order-2 md:order-1
         '>
 
-          <section className='mb-5 sm:mb-10 lg:mb-20 flex flex-col justify-center items-center'>
+          <section className='HeadingMasterPageContainer flex flex-col justify-center items-center'>
             <h1 className='HeadingMasterPage mb-4 md:mb-8'>
               The music you
             </h1>
@@ -149,15 +151,16 @@ function Master(): JSX.Element {
 
             {/* CELULAR Y FORMAS */}
             <article>
-              <div className='relative w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]'>
-                <SmallCircles peakToLeft={true} className="absolute -left-10 -top-10 " />
-                <SmallCircles peakToLeft={false} className="absolute -right-10 -bottom-10 " />
+              {/* <div className='relative w-[175px] h-[350px] lg:w-[250px] lg:h-[500px] xl:w-[300px] xl:h-[600px]'> */}
+              <div className='CellphoneContainer relative'>
+                <SmallCircles peakToLeft={true} className="SmallCircles-LeftTop" />
+                <SmallCircles peakToLeft={false} className="SmallCircles-RightBottom" />
                 <BigCirclesProps 
                   gradientToCornerRight={true} 
-                  className="absolute -right-16 -top-8 lg:-right-32 lg:-top-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+                  className="BigCircles BigCircles-RightTop" />
                 <BigCirclesProps 
                   gradientToCornerRight={false} 
-                  className="absolute -left-16 -bottom-8 lg:-left-32 lg:-bottom-16 w-[10rem] h-[10rem] lg:w-[15rem] lg:h-[15rem] xl:w-[18rem] xl:h-[18rem]" />
+                  className="BigCircles BigCircles-LeftBottom" />
                 <Cellphone className='Video-Rounded absolute left-0 top-1 lg:top-4 min-w-full max-w-full h-[96%]' />
               </div>
             </article>
