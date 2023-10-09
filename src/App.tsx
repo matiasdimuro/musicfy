@@ -1,8 +1,9 @@
-import Advantages from './layout/Advantages'
 import Master from './layout/Master'
+import Quote from './layout/Quote'
+import Advantages from './layout/Advantages'
+import FAQ from './layout/FAQ'
 // import ContactButton from './components/ContactButton'
 // import WavesBackground from './components/WavesBackground'
-import Quote from './layout/Quote'
 
 
 function App(): JSX.Element {
@@ -13,8 +14,7 @@ function App(): JSX.Element {
       <Master/>
       <Quote />
       <Advantages />
-      <Quote />
-
+      <FAQ />
       {/* <ContactButton className='absolute right-6 top-[90%] inline-block'/> */}
     </>
   )
