@@ -11,7 +11,9 @@ function FAQItem({question, answer}: IFAQItemProps) {
 
   return (
     <div 
-      className="w-full h-fit bg-coral  py-3 px-[35px] rounded-lg hover:cursor-pointer hover:bg-[#c4b7b7]" 
+      className="
+        w-full h-fit bg-coral py-3 px-[35px] rounded-lg 
+        hover:cursor-pointer hover:bg-[#c4b7b7] transition-colors ease-in-out duration-200" 
       onClick={() => setExpanded(!isExpanded)}>
 
       <div className="flex items-center justify-between">

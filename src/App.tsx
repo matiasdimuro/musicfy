@@ -2,19 +2,18 @@ import Master from './layout/Master'
 import Quote from './layout/Quote'
 import Advantages from './layout/Advantages'
 import FAQ from './layout/FAQ'
+import Subscription from './layout/Subscription'
 // import ContactButton from './components/ContactButton'
-// import WavesBackground from './components/WavesBackground'
-
 
 function App(): JSX.Element {
 
   return (
     <>
-      {/* <WavesBackground /> */}
       <Master/>
-      <Quote />
-      <Advantages />
-      <FAQ />
+      <Quote/>
+      <Advantages/>
+      <FAQ/>
+      <Subscription/>
       {/* <ContactButton className='absolute right-6 top-[90%] inline-block'/> */}
     </>
   )
